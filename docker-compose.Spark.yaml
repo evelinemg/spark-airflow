@@ -12,6 +12,8 @@ services:
       - SPARK_SSL_ENABLED=no
       - AZURE_ACCESS_KEY=${AZURE_ACCESS_KEY}
       - AZURE_ACCOUNT_NAME=${AZURE_ACCOUNT_NAME}
+    volumes:
+      - ./dags:/opt/bitnami/spark/app/
     ports:
       - '8090:8080'
   spark-worker:
@@ -27,7 +29,8 @@ services:
       - SPARK_SSL_ENABLED=no
       - AZURE_ACCESS_KEY=${AZURE_ACCESS_KEY}
       - AZURE_ACCOUNT_NAME=${AZURE_ACCOUNT_NAME}
-  
+    volumes:
+      - ./dags:/opt/bitnami/spark/app/
   spark-worker-2:
     image: spark-air:latest
     environment:
@@ -41,6 +44,8 @@ services:
       - SPARK_SSL_ENABLED=no
       - AZURE_ACCESS_KEY=${AZURE_ACCESS_KEY}
       - AZURE_ACCOUNT_NAME=${AZURE_ACCOUNT_NAME}
+    volumes:
+      - ./dags:/opt/bitnami/spark/app/
   
   jupyter-notebook:
     image: jupyter/pyspark-notebook:latest

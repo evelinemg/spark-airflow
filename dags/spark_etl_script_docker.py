@@ -9,7 +9,6 @@ from constants import base_url, params, container
 
 azure_access_key = config('AZURE_ACCESS_KEY')
 azure_account_name = config('AZURE_ACCOUNT_NAME')
-azure_container_name = config('AZURE_CONTAINER_NAME')
 
 schema = StructType([StructField("id", StringType(), True),
                      StructField("brewery_type", StringType(), True),
@@ -58,5 +57,5 @@ def makeDfAndSparkSession():
 if __name__ == '__main__':
     df,spark=makeDfAndSparkSession()
     df.show()
-    df.write.parquet(f"abfss://{azure_container_name}@{azure_account_name}.dfs.core.windows.net/raw/openbrewerydb",mode='overwrite')
+    df.write.parquet(f"abfss://{container}@{azure_account_name}.dfs.core.windows.net/raw/openbrewerydb",mode='overwrite')
     spark.stop()
