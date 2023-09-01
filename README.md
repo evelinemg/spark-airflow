@@ -17,7 +17,7 @@
 #### Clonar o repositório
 
 ```
- git clone https://github.com/evelinemg/spark-airflow 
+ git clone https://github.com/evelinemg/spark-airflow.git
  ```
 #### Gera a imagem Spark
 
@@ -29,7 +29,17 @@ docker build -f Dockerfile.Spark . -t spark-air
 ```
 docker build -f Dockerfile.Airflow . -t airflow-spark
 ```
+
+#### Cria variáveis de ambiete
+Cria arquivo ".env" e defina as variáveis como no exemplo
+```
+AIRFLOW_UID=33333
+AIRFLOW_GID=0
+AZURE_ACCESS_KEY=<storage key>
+AZURE_ACCOUNT_NAME=<storage account name>
+```
 #### Cria containers
 ```
 docker-compose -f docker-compose.Spark.yaml -f docker-compose.Airflow.yaml up -d
 ```
+### Containers
