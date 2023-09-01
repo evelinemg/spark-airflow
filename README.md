@@ -44,10 +44,36 @@ AZURE_ACCOUNT_NAME=<storage account name>
 ```
 docker-compose -f docker-compose.Spark.yaml -f docker-compose.Airflow.yaml up -d
 ```
-### Containers
+#### Conexão Spark-Airflow
+
+[imagem]
+
+### Spark Workers
+Para adicionar mais workes ao projeto basta replicar o código abaixo no arquivo "docker-composer.Spark.yaml"
+```
+spark-worker-n:
+    image: spark-air:latest
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark:7077
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+      - AZURE_ACCESS_KEY=${AZURE_ACCESS_KEY}
+      - AZURE_ACCOUNT_NAME=${AZURE_ACCOUNT_NAME}
+```
 
 
 ### Referências
 O projeto foi adaptado dos respositórios abaixo, deixe de sua estrelinha neles:
 
 :star2: [yTek0](https://github.com/yTek01/docker-spark-airflow)
+
+:star2: [cordon-thiago](https://github.com/cordon-thiago/airflow-spark)
+
+:star2: [puckel](https://github.com/puckel/docker-airflow)
+
+:star2: [pyjaime](https://github.com/pyjaime/docker-airflow-spark)

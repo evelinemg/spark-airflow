@@ -8,6 +8,7 @@ default_args = {
     'owner': 'airflow',    
     'retry_delay': timedelta(minutes=5),
 }
+
 jar_path = "/opt/airflow/jars/"
 
 spark_dag = DAG(
