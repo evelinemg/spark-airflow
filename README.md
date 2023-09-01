@@ -22,12 +22,12 @@
 #### Gera a imagem Spark
 
 ```
-docker build -f Dockerfile.Spark -t spark-air
+docker build -f Dockerfile.Spark . -t spark-air
 ```
 
 #### Gera imagem Airflow
 ```
-docker build -f Dockerfile.Airflow -t airflow-spark
+docker build -f Dockerfile.Airflow . -t airflow-spark
 ```
 #### Cria containers
 ```
