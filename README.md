@@ -1,7 +1,9 @@
-# Docker: Airflow, Spark, Jupyter Notebook, Azure
+# Dcoker: Airflow, Spark, Jupyter Notebook
 
+Projeto para o estudo de Airflow utilizando Spark Operators. Por enquanto faz a leitura da API e faz o loading no Azure Data Lake Storage Gen2.
 
-### Sobre as imagens
+![Arquitetura](/images/arquitetura.png "Arquitetura do Projeto")
+### Sobre as imagens Docker
 #### Airflow:
 - Dockerfile.Airflow: utiliza a versão [apache/airflow:latest-python3.9](https://hub.docker.com/layers/apache/airflow/latest-python3.9/images/sha256-f5dd54399c66eb93e481730efffa66eb002114c10a251de0edeac9bc322cf8ea?context=explore) e faz a instalação de pacotes para a execução do job spark.
 - docker-compose.Airflow.yaml: baseada na [versão oficial](https://airflow.apache.org/docs/apache-airflow/2.0.1/docker-compose.yaml) e configurada para usar a imagem "airflow-spark"
@@ -43,3 +45,9 @@ AZURE_ACCOUNT_NAME=<storage account name>
 docker-compose -f docker-compose.Spark.yaml -f docker-compose.Airflow.yaml up -d
 ```
 ### Containers
+
+
+### Referências
+O projeto foi adaptado dos respositórios abaixo, deixe de sua estrelinha neles:
+
+:star2: [yTek0](https://github.com/yTek01/docker-spark-airflow)
